@@ -10,5 +10,5 @@ Route::get('/user', function (Request $request) {
 
 
 Route::controller(ScoreController::class)->prefix("scores")->group(function(){
-    Route::get("update-score","updateScore");
+    Route::post("update-score","updateScore");
 });

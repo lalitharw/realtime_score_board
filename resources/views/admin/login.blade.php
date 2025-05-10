@@ -6,28 +6,28 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-    <script src="https://js.pusher.com/8.4.0/pusher.min.js"></script>
     @vite('resources/css/app.css')
 </head>
 <body>
 
 <div class="flex items-center flex-col justify-center min-h-screen">
     <h3 class="font-bold mb-3 text-2xl">Login</h3>
-<div class="w-full max-w-xs  mx-auto">
-    <form method="POST" action="{{ route('admin.auth.login') }}">
-        @csrf
-    <input type="email" name="email" placeholder="Email" class="flex mb-[20px] w-full h-10 px-3 py-2 text-sm bg-white border rounded-md border-neutral-300 ring-offset-background placeholder:text-neutral-500 focus:border-neutral-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-400 disabled:cursor-not-allowed disabled:opacity-50" />
-    <input type="text" name="password" placeholder="Password" class="flex w-full h-10 px-3 py-2 text-sm bg-white border rounded-md border-neutral-300 ring-offset-background placeholder:text-neutral-500 focus:border-neutral-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-400 disabled:cursor-not-allowed disabled:opacity-50" />
-    <button class="w-full bg-blue-500 mt-3 py-1 text-white rounded-lg hover:bg-blue-700">Submit</button>
-    </form>
+    <div class="w-full max-w-xs  mx-auto">
+        <form method="POST" action="{{ route('admin.auth.login') }}">
+            @csrf
+            <input type="email" name="email" placeholder="Email" class="flex mb-[20px] w-full h-10 px-3 py-2 text-sm bg-white border rounded-md border-neutral-300 ring-offset-background placeholder:text-neutral-500 focus:border-neutral-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-400 disabled:cursor-not-allowed disabled:opacity-50" />
+            <input type="text" name="password" placeholder="Password" class="flex w-full h-10 px-3 py-2 text-sm bg-white border rounded-md border-neutral-300 ring-offset-background placeholder:text-neutral-500 focus:border-neutral-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-400 disabled:cursor-not-allowed disabled:opacity-50" />
+            <button class="w-full bg-blue-500 mt-3 py-1 text-white rounded-lg hover:bg-blue-700">Submit</button>
+        </form>
+    </div>
 </div>
-</div>
+<script src="https://js.pusher.com/8.4.0/pusher.min.js"></script>
 <script>
 
     // Enable pusher logging - don't include this in production
     Pusher.logToConsole = true;
 
-    var pusher = new Pusher('021abb288ff5d86a1ffe', {
+    var pusher = new Pusher('808f74cd7679dce6426a', {
       cluster: 'ap2'
     });
 
@@ -36,7 +36,7 @@
       alert(JSON.stringify(data));
     });
   </script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+{{-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 @if(Session::has("message"))
 <script>
 
@@ -56,7 +56,7 @@
         onClick: function(){} // Callback after click
     }).showToast();
 </script>
-@endif
+@endif --}}
 
 </body>
 </html>

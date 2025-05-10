@@ -16,7 +16,11 @@ class ScoreController extends Controller
             "runs" => "required"
         ]);
 
-        \Log::info($request->all());
-        // broadcast(new scoreUpdated($request->team,$request->score,$request->type));
+        $test = scoreUpdated::dispatch($request->home_team_id, $request->away_team_id);
+        \Log::info($test);
+        return response([
+            "message" => "Score Updated Successfully",
+            "success" => true
+        ],200);
     }
 }
