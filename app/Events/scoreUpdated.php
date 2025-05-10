@@ -24,6 +24,10 @@ class scoreUpdated implements ShouldBroadcast
         $this->score = $score;
     }
 
+    public function broadcastAs(){
+        return "scoreUpdated";
+    }
+
     /**
      * Get the channels the event should broadcast on.
      *

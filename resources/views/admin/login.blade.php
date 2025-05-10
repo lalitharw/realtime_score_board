@@ -6,8 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-
-
+    <script src="https://js.pusher.com/8.4.0/pusher.min.js"></script>
     @vite('resources/css/app.css')
 </head>
 <body>
@@ -23,10 +22,26 @@
     </form>
 </div>
 </div>
+<script>
 
+    // Enable pusher logging - don't include this in production
+    Pusher.logToConsole = true;
+
+    var pusher = new Pusher('021abb288ff5d86a1ffe', {
+      cluster: 'ap2'
+    });
+
+    var channel = pusher.subscribe('scoreboard');
+    channel.bind('scoreUpdated', function(data) {
+      alert(JSON.stringify(data));
+    });
+  </script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 @if(Session::has("message"))
 <script>
+
+
+
     Toastify({
         text: "{{ Session::get('message') }}",
         duration: 3000,
